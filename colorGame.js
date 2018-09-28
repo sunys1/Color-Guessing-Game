@@ -11,6 +11,10 @@ var hardBtn = document.querySelector("#hardBtn");
 easyBtn.addEventListener("click", function(){
 	easyBtn.classList.add("selected"); 
 	hardBtn.classList.remove("selected"); 
+	//Generate 3 new colors only on easy mode
+	colors = generateColors(3);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
 });
 hardBtn.addEventListener("click", function(){
 	easyBtn.classList.remove("selected"); 
