@@ -54,7 +54,7 @@ resetBtn.addEventListener("click", function(){
 	//add initial colors to squares
 		squares[i].style.backgroundColor /*(works for all browsers)*/ = colors[i];
 	}
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 })
 
 for(var i = 0; i < squares.length; i++){
