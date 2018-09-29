@@ -1,4 +1,5 @@
-var colors = generateColors(6);
+numOfSquares = 6;
+var colors = generateColors(numOfSquares);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
@@ -12,7 +13,8 @@ easyBtn.addEventListener("click", function(){
 	easyBtn.classList.add("selected"); 
 	hardBtn.classList.remove("selected"); 
 	//Generate 3 new colors only on easy mode
-	colors = generateColors(3);
+	numOfSquares = 3;
+	colors = generateColors(numOfSquares);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
 	//display the first 3 squares only
@@ -27,7 +29,8 @@ easyBtn.addEventListener("click", function(){
 hardBtn.addEventListener("click", function(){
 	easyBtn.classList.remove("selected"); 
 	hardBtn.classList.add("selected");
-	colors = generateColors(6);
+	numOfSquares = 6;
+	colors = generateColors(numOfSquares);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
 	//re-enable the hidden squares
@@ -41,7 +44,7 @@ hardBtn.addEventListener("click", function(){
 colorDisplay.textContent = pickedColor;
 resetBtn.addEventListener("click", function(){
 	//generate all new colors  
-	colors = generateColors(6);
+	colors = generateColors(numOfSquares);
 	//pick a new random color from the colorList;
 	pickedColor = pickColor();
 	//change colorDisplay to matched color
