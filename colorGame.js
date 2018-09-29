@@ -26,7 +26,16 @@ easyBtn.addEventListener("click", function(){
 });
 hardBtn.addEventListener("click", function(){
 	easyBtn.classList.remove("selected"); 
-	hardBtn.classList.add("selected"); 
+	hardBtn.classList.add("selected");
+	colors = generateColors(6);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	//re-enable the hidden squares
+	for(var i = 0; i < squares.length; i++){
+			squares[i].style.backgroundColor = colors[i];
+			squares[i].style.display = "block";
+	}
+
 });
 
 colorDisplay.textContent = pickedColor;
