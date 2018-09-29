@@ -15,6 +15,14 @@ easyBtn.addEventListener("click", function(){
 	colors = generateColors(3);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
+	//display the first 3 squares only
+	for(var i = 0; i < squares.length; i++){
+		if(colors[i]){
+			squares[i].style.backgroundColor = colors[i];
+		}else {
+			squares[i].style.display = "none";
+		}
+	}
 });
 hardBtn.addEventListener("click", function(){
 	easyBtn.classList.remove("selected"); 
@@ -30,14 +38,14 @@ resetBtn.addEventListener("click", function(){
 	//change colorDisplay to matched color
 	colorDisplay.textContent = pickedColor;
 	//change colors of squares
-	for(var i = 0; i < squares.length; i++) {
+	for(var i = 0; i < squares.length; i++){
 	//add initial colors to squares
 		squares[i].style.backgroundColor /*(works for all browsers)*/ = colors[i];
 	}
 	h1.style.backgroundColor = "#232323";
 })
 
-for(var i = 0; i < squares.length; i++) {
+for(var i = 0; i < squares.length; i++){
 	//add initial colors to squares
 	squares[i].style.backgroundColor /*(works for all browsers)*/ = colors[i];
 
@@ -46,7 +54,7 @@ for(var i = 0; i < squares.length; i++) {
 		//grab color of clicked square
 		var clickedColor = this.style.backgroundColor;	
 		//compare color to pickedColor
-		if(clickedColor === pickedColor) {
+		if(clickedColor === pickedColor){
 			msgDisplay.textContent = "Correct!";
 			changeColors(clickedColor);
 			h1.style.backgroundColor = clickedColor	;
@@ -59,34 +67,34 @@ for(var i = 0; i < squares.length; i++) {
 	});
 }
 
-function changeColors(color) {
+function changeColors(color){
 	//loop through all squares
-	for(var i = 0; i < squares.length; i++) {
+	for(var i = 0; i < squares.length; i++){
 	//change each color to match given color
 		squares[i].style.backgroundColor = color; 	
 	}
 	
 }
 
-function generateColors(num) {
+function generateColors(num){
 	//make an array
 	var colorList = [];
 	//repeat num times
-	for(var i = 0; i < num; i++) {
+	for(var i = 0; i < num; i++){
 	//generate random color and push them into colorList
 		colorList.push(randomColor());
 	}
 	return colorList;
 }
 
-function randomColor() {
+function randomColor(){
 	var r = Math.floor(Math.random() * 256);
 	var g = Math.floor(Math.random() * 256);
 	var b = Math.floor(Math.random() * 256);
 
 	return "rgb(" + r + ", " + g + ", " + b + ")";
 }
-function pickColor() {
+function pickColor(){
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
 }
