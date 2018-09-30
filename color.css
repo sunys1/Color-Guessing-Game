@@ -47,4 +47,12 @@ button {
 	border: none;
 	background: none;
 	text-transform: uppercase; 
+	height: 100%;
+	font-weight: 700;
+	color: steelblue;
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
 }
