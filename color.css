@@ -50,6 +50,8 @@ button {
 	height: 100%;
 	font-weight: 700;
 	color: steelblue;
+	font-size: inherit;
+	transition: all 0.5s;
 }
 
 #message {
