@@ -6,56 +6,50 @@ var colorDisplay = document.getElementById("colorDisplay");
 var	msgDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetBtn = document.querySelector("#reset");
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
+var mode = document.querySelectorAll(".mode");
 
-easyBtn.addEventListener("click", function(){
-	easyBtn.classList.add("selected"); 
-	hardBtn.classList.remove("selected"); 
-	//Generate 3 new colors only on easy mode
-	numOfSquares = 3;
-	colors = generateColors(numOfSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	//display the first 3 squares only
-	for(var i = 0; i < squares.length; i++){
-		if(colors[i]){
-			squares[i].style.backgroundColor = colors[i];
-		}else {
-			squares[i].style.display = "none";
-		}
-	}
-});
-hardBtn.addEventListener("click", function(){
-	easyBtn.classList.remove("selected"); 
-	hardBtn.classList.add("selected");
-	numOfSquares = 6;
-	colors = generateColors(numOfSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	//re-enable the hidden squares
-	for(var i = 0; i < squares.length; i++){
-			squares[i].style.backgroundColor = colors[i];
-			squares[i].style.display = "block";
-	}
+//More convinient in case of adding more difficulty levels
+for(var i = 0; i < mode.length; i++){
+	//Remove class "selected" from both buttons to be sure that
+	//no one has the class.
+	mode[i].addEventListener("click", function(){
+		mode[0].classList.remove("selected");
+		mode[1].classList.remove("selected");
+		//Add class "selected" to whichever button clicked
+		this.classList.add("selected");
+		this.textContent === "Easy" ? numOfSquares = 3 : numOfSquares = 6;
+		reset();
+	
+	})
+}
 
-});
-
-colorDisplay.textContent = pickedColor;
-resetBtn.addEventListener("click", function(){
+function reset(){
 	//generate all new colors  
 	colors = generateColors(numOfSquares);
 	//pick a new random color from the colorList;
 	pickedColor = pickColor();
 	//change colorDisplay to matched color
 	colorDisplay.textContent = pickedColor;
-	//change colors of squares
+	// Set message display back to empty string
+	msgDisplay.textContent = "";
+	resetBtn.textContent = "New Colors";
+	//Change colors of squares
 	for(var i = 0; i < squares.length; i++){
-	//add initial colors to squares
-		squares[i].style.backgroundColor /*(works for all browsers)*/ = colors[i];
+		if(colors[i]){
+			squares[i].style.display = "block";
+			squares[i].style.backgroundColor = colors[i];	
+		}else{
+			squares[i].style.display = "none";
+		}
+		h1.style.backgroundColor = "steelblue";
 	}
-	h1.style.backgroundColor = "steelblue";
+}
+
+resetBtn.addEventListener("click", function(){
+	reset();	
 })
+
+colorDisplay.textContent = pickedColor;
 
 for(var i = 0; i < squares.length; i++){
 	//add initial colors to squares
