@@ -12,6 +12,12 @@ init();
 
 function init(){
 	//More convinient in case of adding more difficulty levels
+	setupModeButtons();
+	setupSquares();
+	reset();
+}
+
+function setupModeButtons(){
 	for(var i = 0; i < mode.length; i++){
 		//Remove class "selected" from both buttons to be sure that
 		//no one has the class.
@@ -24,7 +30,9 @@ function init(){
 			reset();
 		})
 	}
+}
 
+function setupSquares(){
 	for(var i = 0; i < squares.length; i++){
 		//add initial colors to squares
 		squares[i].style.backgroundColor /*(works for all browsers)*/ = colors[i];
@@ -44,7 +52,6 @@ function init(){
 			}	 
 		});
 	}
-	reset();
 }
 
 function reset(){
