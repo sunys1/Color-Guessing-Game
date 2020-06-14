@@ -1,3 +1,6 @@
+var _ = require ("lodash");
+
+console.log (_);
 numOfSquares = 6;
 var colors = [];
 var pickedColor;

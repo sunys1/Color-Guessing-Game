@@ -1,0 +1,23 @@
+{
+  "name": "color-guessing-game",
+  "version": "1.0.0",
+  "description": "https://sunys1.github.io/Color-Guessing-Game/",
+  "main": "bundle.js",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify colorGame.js > bundle.js && live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunys1/Color-Guessing-Game.git"
+  },
+  "author": "Yizhou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunys1/Color-Guessing-Game/issues"
+  },
+  "homepage": "https://github.com/sunys1/Color-Guessing-Game#readme"
+}
