@@ -4,7 +4,7 @@
   "description": "https://sunys1.github.io/Color-Guessing-Game/",
   "main": "bundle.js",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {},
   "scripts": {
